@@ -6,7 +6,7 @@ include('../dist/includes/dbcon.php');
  $id = $_POST['id'];
  $title = $_POST['title'];
 
- mysqli_query($con,"UPDATE dept SET dept='$title' where dept_id='$id'")
+ mysqli_query($con,"UPDATE department SET department_title='$title' where department_id='$id'")
  or die(mysqli_error()); 
 
 	echo "<script type='text/javascript'>alert('Successfully updated department!');</script>";

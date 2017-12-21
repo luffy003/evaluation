@@ -45,7 +45,7 @@
         <section class="content-header">
           <h1>
             List of Admin Users 
-            <span class="col-xs-2 col-sm-2 pull-right" style="margin-right:700px;">
+            <span class="col-xs-2 col-sm-2 pull-right" style="margin-right:673px;">
             <a class="btn btn-block btn-primary" data-target="#addcat" class="btn btn-primary" data-toggle="modal" rel="tooltip" title="Update">Add Admin User</a>
             </span>
           </h1>

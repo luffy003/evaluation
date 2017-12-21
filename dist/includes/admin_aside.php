@@ -29,14 +29,15 @@
                     <i class="glyphicon glyphicon-user"></i> <span>Faculty</span>
                 </a>
             </li>
-
-            <li>
-                <a href="user.php">
-                    <i class="glyphicon glyphicon-lock"></i> <span>Users</span>
-                </a>
-            </li>
+            
             <li>
                 <a href="department.php">
+                    <i class="glyphicon glyphicon-education"></i> <span>Department</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="collegegroup.php">
                     <i class="glyphicon glyphicon-th-large"></i> <span>College Group</span>
                 </a>
             </li>
@@ -51,6 +52,12 @@
                     <li><a href="active.php"><i class="glyphicon glyphicon-stats"></i> Faculty (Active)</a></li>
                     <li><a href="statistics.php"><i class="glyphicon glyphicon-stats"></i> Statistic By Department</a></li>
                 </ul>
+            </li>
+            
+            <li>
+                <a href="user.php">
+                    <i class="glyphicon glyphicon-lock"></i> <span>Users</span>
+                </a>
             </li>
         </ul>
     </section>
