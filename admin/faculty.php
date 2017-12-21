@@ -45,7 +45,11 @@
         <section class="content-header">
           <h1>
             Faculty
+            <span class="col-xs-2 col-sm-2 pull-right" style="margin-right:700px;">
+            <a class="btn btn-block btn-primary" data-target="#addcat" class="btn btn-primary" data-toggle="modal" rel="tooltip" title="Update">Add faculty</a>
+            </span>
           </h1>
+
           <ol class="breadcrumb">
             <li><a href="#"> Home</a></li>
             <li class="active">Faculty</li>
@@ -137,6 +141,54 @@ include('../dist/includes/dbcon.php');
         </div>
       </div>
  </div>
+ <!--end of modal-->
+ <div id="addcat" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Add Faculty</h4>
+                      </div>
+                      <div class="modal-body">
+                       <form class="form-horizontal" method="post" action="user_save.php" enctype='multipart/form-data'>
+                          <!-- Title -->
+                          <div class="form-group">
+                            <label class="control-label col-lg-3" for="last">Last Name</label>
+                            <div class="col-lg-8">
+                              <input type="text" class="form-control" id="last" name="last" placeholder="Last Name">  
+                            </div>
+                          </div> 
+                          <div class="form-group">
+                            <label class="control-label col-lg-3" for="first">First Name</label>
+                            <div class="col-lg-8">
+                              <input type="text" class="form-control" id="first" name="first" placeholder="First Name">  
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-lg-3" for="username">Username</label>
+                            <div class="col-lg-8">
+                              <input type="text" class="form-control" id="username" name="username" placeholder="Username">  
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-lg-3" for="pass">Password</label>
+                            <div class="col-lg-8">
+                              <input type="password" class="form-control" id="pass" name="pass" placeholder="password">  
+                            </div>
+                          </div> 
+                          <div class="form-group">
+                            <label class="control-label col-lg-3" for="salut">Picture</label>
+                            <div class="col-lg-8">
+                              <input type="file" class="form-control" id="image" name="image">  
+                            </div>
+                          </div> 
+                        </div>     
+                      <!--end of modal body-->
+                      <div class="modal-footer">
+                         <button type="submit" name="save" class="btn btn-primary">Save</button>
+                         <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+                      </div>
+               </div>
                <!--end of modal-->     
 <div id="status<?php echo $id;?>" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
