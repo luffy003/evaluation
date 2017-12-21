@@ -12,7 +12,7 @@
     <!-- BEGIN HEADER -->
     <?php include 'header_nav.php';?>
     <!-- Header END -->
-s
+
     <div class="main">
       <div class="container">
         <ul class="breadcrumb">
@@ -31,54 +31,75 @@ s
                   <!-- BEGIN LISTS -->
                   <div class="row front-lists-v1" style="text-align:center ">
                     <div class="col-md-4">
-                      <h2 class="no-top-space">VISION STATEMENT</h2>
-                      <p >
-                        We dream of Filipinos<br>
-                        who passionately love their country<br>
-                        and whose values and competencies<br>
-                        enable them to realize their full potential<br>
-                        and contribute meaningfully to building the nation.<br>
-                        As a learner-centered public institution,<br>
-                        the Department of Education<br>
-                        continuously improves itself to better serve its stakeholders.
+                      <h2 class="no-top-space"><strong>VISION STATEMENT<strong></h2>
+
+                      <p>
+                        GREEN CHMSC EXCELS
+
+                        Excellence, Competence, and Educational Leadership in Science and Technology.
                       </p>
                     </div>
                     <div class="col-md-4">
-                      <h2 class="no-top-space">MISION STATEMENT</h2>
+                      <h2 class="no-top-space"><strong>MISION STATEMENT<strong></h2>
                       <p>
-                        To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: Students learn in a child-friendly, gender-sensitive, safe, and motivating environment. </p>
-                      <p>
-                      Teachers facilitate learning and constantly nurture every learner Administrators and staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen Family, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners. 
+                  A leading green institution in higher and continuing education committed to engage in quality instruction, development-oriented research, sustainable lucrative economic enterprise, and responsive extension and training services through relevant academic programs to empower a human resource that responds effectively to challenges in life and act as catalyst in the holistic development of a humane society.
                       </p>
                     </div>
                     <div class="col-md-4">
-                      <h2 class="no-top-space">ALMA MATTER SONG</h2>
-                      <p>'Neath the palm tress<br>
-                          Tall and slender<br>
-                          Stands our Alma Mater Dear<br>
-                          Sharing with the gleaming ocean<br>
-                          All the honor She has won.<br></p>
+                      <h2 class="no-top-space"><strong>CHMSC HYMN<strong></h2>
+                      <p>CHMSC Hymn <br>
+by Dr. Victor Lyrics ia L. Ojas<br>
 
-                      <p>See the Lacson High<br>
-                          She stands with pride<br>
-                          For her glory we'll do or die<br>
-                          A helping hand will always give<br>
-                          All the blessings she'll recieve.</p>
+ <br>
 
-                      <p>With loyal hearts were set to fame<br>
-                          We'll forever cherish your name<br>
-                          Lacson High Beloved, Hail to thee<br>
-                          More laurels we'll win for thee.</p>
+A wisp from sky's resplendent wall <br>
 
-                      <p>Hail! Hail! Beloved Lacson high<br>
-                          We praise thee for thy precious name<br>
-                          We proudly stand in fame and pride<br>
-                          We'll forever be the same.</p>
+breathes hope brings light as it does fall <br>
+
+steer on the anvil so the gear <br>
+
+to weave the song CHMSC dear <br>
+
+  <br>
+
+CHMSC thou art hope and joy <br>
+
+Science, Technology ye do deploy <br>
+
+to youth with fervor burning still <br>
+
+thou quench the thirst for knowledge and skils <br>
+
+ 
+  <br>
+O hail! we plegde our loyalty <br>
+
+and all our toils for thy glory be <br>
+
+to the skies that lend the noble blue <br>
+
+CHMSC, to thee we'll be true <br>
+
+ <br>
+
+O hail! when pioneering days will end <br>
+
+and success our stress will sure portend <br>
+
+this song will ring loudly through the sky <br>
+
+to thank the Great Power on high</p>
+
+    
                     </div>
-                    <h2 class="no-top-space">Background</h2>
-                    <p>  In the early 1960's, Bacolod City was well on its way to to becoming one of the progressive cities in the Philippines.  Progress was evident not only its physical aspect but also in its population.  However, not only births accounted for the increase but also the migrants who came to the city in search for livelihood.  At that time in Bacolod City, the olny public secondary school was Bacolod City High School.</p>
-                    <p>As the population was becoming dense at all points of the city, the former City Superintendent of Schools, Atty. Dominador K. Lopez saw the necessity of putting up a high school in the northern part of Bacolod.  This school would take care of the secondary education of the childreb in that area.  Accordingly, he went into action and recommended the establishment of such a school to the Honorable Bacolod City Council.  The City Officials, being in concurrence with his views and recommendations, undertook steps to make the plan a reality.
-                    </p>
+                    <h2 class="no-top-space"><strong>BACKGROUND<strong></h2>
+                    <p>   Carlos Hilado Memorial State College, formerly Paglaum State College, is a public educational institution that aims to provide higher technological, professional and vocational instruction and training in science, agriculture and industrial fields as well as short term or vocational courses.</p>
+
+                    <p>    It was Batas Pambansa Bilang 477 which integrated these three institutions of learning:the Negros Occidental College of Arts and Trades (NOCAT) in the Municipality of Talisay, Bacolod City National Trade School (BCNTS) in Alijis, Bacolod City, and the Negros Occidental Provincial Community College (NOPCC) in Bacolod City, into a tertiary state educational institution to be called Paglaum State College.Approved in 1983, the College Charter was implemented effective January 1, 1984, with Mr. Sulpicio P. Cartera as its President.</p>
+
+                    <p>   The administrative seat of the first state college in Negros Occidental is located at the Talisay Campus which was originally established as Negros Occidental School of Arts and Trades (NOSAT) under R.A. 848, authored and sponsored by Hon. Carlos Hilado. It occupies a five-hectare land donated by the provincial government under Provincial Board Resolution No. 1163.
+
+                    <p>   The renaming of the college to Carlos Hilado Memorial State College was effected by virtue of House Bill No. 7707 authored by then Congressman Jose Carlos V. Lacson of the 3rd Congressional District, Province of Negros Occidental, and which finally became a law on May 5, 1994.</p>
                   </div>
                   </div>			  
 

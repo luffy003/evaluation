@@ -32,14 +32,14 @@
                 <div class="col-md-5 col-sm-5 sidebar2">
                   <h2>Contact Us</h2>
                   <address>
-                    <strong>Domingo Lacson National High School</strong><br>
-                    Sta. Clara Subdivision, Brgy. Banago<br>
-                    Bacolod City<br>
+                    <strong>Carlos Hilado Memorial State College</strong><br>
+                    <br>
+                    Talisay City<br>
                     <abbr title="Phone">Tel</abbr> (034) 712-0050
                   </address>
                   <address>
                     <strong>Email</strong><br>
-                    <a href="">dlnhs@gmail.com</a>
+                    <a href="">chmsc@gmail.com</a>
                   </address>
                   
                 </div>
