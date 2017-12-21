@@ -221,6 +221,7 @@ endif;
                                             <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
                                         </div>
                                     </div>
+                                </div></div>
                                     <!--end of modal-->     
                                     <div id="status<?php echo $id; ?>" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog">
