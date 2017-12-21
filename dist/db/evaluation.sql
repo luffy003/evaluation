@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.1.12
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2017 at 09:23 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Dec 21, 2017 at 08:26 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `faculty_profiling`
+-- Database: `evaluation`
 --
 
 -- --------------------------------------------------------
@@ -26,15 +26,16 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
-  `admin_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `admin` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
   `admin_last` varchar(30) NOT NULL,
   `admin_first` varchar(30) NOT NULL,
   `admin_username` varchar(30) NOT NULL,
   `admin_password` varchar(30) NOT NULL,
   `admin_status` varchar(10) NOT NULL,
-  `admin_pic` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `admin_pic` varchar(100) NOT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `admin`
@@ -50,8 +51,8 @@ INSERT INTO `admin` (`admin_id`, `admin_last`, `admin_first`, `admin_username`, 
 -- Table structure for table `agency`
 --
 
-CREATE TABLE `agency` (
-  `agency_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `agency` (
+  `agency_id` int(11) NOT NULL AUTO_INCREMENT,
   `agency_name` varchar(100) NOT NULL,
   `agency_address` varchar(100) NOT NULL,
   `agency_contact` varchar(30) NOT NULL,
@@ -61,8 +62,9 @@ CREATE TABLE `agency` (
   `dept` varchar(50) NOT NULL,
   `status` varchar(10) NOT NULL,
   `industry_id` int(11) NOT NULL,
-  `agency_code` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `agency_code` varchar(10) NOT NULL,
+  PRIMARY KEY (`agency_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `agency`
@@ -77,11 +79,12 @@ INSERT INTO `agency` (`agency_id`, `agency_name`, `agency_address`, `agency_cont
 -- Table structure for table `announcement`
 --
 
-CREATE TABLE `announcement` (
-  `announcement_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `announcement` (
+  `announcement_id` int(11) NOT NULL AUTO_INCREMENT,
   `announcement` varchar(1000) NOT NULL,
-  `date_posted` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date_posted` datetime NOT NULL,
+  PRIMARY KEY (`announcement_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
 
 --
 -- Dumping data for table `announcement`
@@ -118,16 +121,17 @@ INSERT INTO `announcement` (`announcement_id`, `announcement`, `date_posted`) VA
 -- Table structure for table `civil`
 --
 
-CREATE TABLE `civil` (
-  `civil_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `civil` (
+  `civil_id` int(11) NOT NULL AUTO_INCREMENT,
   `faculty_id` int(11) NOT NULL,
   `eligibility` varchar(100) NOT NULL,
   `rating` decimal(5,2) NOT NULL,
   `date_taken` date NOT NULL,
   `place` varchar(100) NOT NULL,
   `licenseno` varchar(30) NOT NULL,
-  `validity` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `validity` date NOT NULL,
+  PRIMARY KEY (`civil_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `civil`
@@ -140,19 +144,32 @@ INSERT INTO `civil` (`civil_id`, `faculty_id`, `eligibility`, `rating`, `date_ta
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `college_group`
+--
+
+CREATE TABLE IF NOT EXISTS `college_group` (
+  `college_group_id` int(11) NOT NULL AUTO_INCREMENT,
+  `college_group_description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`college_group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contact`
 --
 
-CREATE TABLE `contact` (
-  `contact_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `contact` (
+  `contact_id` int(11) NOT NULL AUTO_INCREMENT,
   `contact_name` varchar(50) NOT NULL,
   `contact_relation` varchar(30) NOT NULL,
   `contact_haddress` varchar(100) NOT NULL,
   `contact_ono` varchar(30) NOT NULL,
   `contact_oaddress` varchar(100) NOT NULL,
   `contact_hno` varchar(30) NOT NULL,
-  `ojt_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ojt_id` int(11) NOT NULL,
+  PRIMARY KEY (`contact_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `contact`
@@ -165,13 +182,26 @@ INSERT INTO `contact` (`contact_id`, `contact_name`, `contact_relation`, `contac
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `department`
+--
+
+CREATE TABLE IF NOT EXISTS `department` (
+  `department_code` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `department_title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`department_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dept`
 --
 
-CREATE TABLE `dept` (
-  `dept_id` int(11) NOT NULL,
-  `dept` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `dept` (
+  `dept_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dept` varchar(100) NOT NULL,
+  PRIMARY KEY (`dept_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `dept`
@@ -189,8 +219,8 @@ INSERT INTO `dept` (`dept_id`, `dept`) VALUES
 -- Table structure for table `educ`
 --
 
-CREATE TABLE `educ` (
-  `educ_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `educ` (
+  `educ_id` int(11) NOT NULL AUTO_INCREMENT,
   `faculty_id` int(11) NOT NULL,
   `level` varchar(50) NOT NULL,
   `course` varchar(100) NOT NULL,
@@ -199,8 +229,9 @@ CREATE TABLE `educ` (
   `at_from` int(4) NOT NULL,
   `at_to` int(4) NOT NULL,
   `level_units` varchar(50) NOT NULL,
-  `honors` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `honors` varchar(100) NOT NULL,
+  PRIMARY KEY (`educ_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `educ`
@@ -226,8 +257,8 @@ INSERT INTO `educ` (`educ_id`, `faculty_id`, `level`, `course`, `school`, `grad`
 -- Table structure for table `evaluation`
 --
 
-CREATE TABLE `evaluation` (
-  `eval_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `evaluation` (
+  `eval_id` int(11) NOT NULL AUTO_INCREMENT,
   `ojt_emp_id` int(11) NOT NULL,
   `skill` decimal(6,2) NOT NULL,
   `knowledge` decimal(6,2) NOT NULL,
@@ -236,8 +267,9 @@ CREATE TABLE `evaluation` (
   `average` decimal(6,2) NOT NULL,
   `remarks` varchar(1000) NOT NULL,
   `school_year` varchar(10) NOT NULL,
-  `ojt_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ojt_id` int(11) NOT NULL,
+  PRIMARY KEY (`eval_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `evaluation`
@@ -253,12 +285,13 @@ INSERT INTO `evaluation` (`eval_id`, `ojt_emp_id`, `skill`, `knowledge`, `attitu
 -- Table structure for table `event`
 --
 
-CREATE TABLE `event` (
-  `event_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `event` (
+  `event_id` int(11) NOT NULL AUTO_INCREMENT,
   `event` varchar(1000) NOT NULL,
   `event_desc` longtext NOT NULL,
-  `date_posted` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date_posted` datetime NOT NULL,
+  PRIMARY KEY (`event_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `event`
@@ -274,8 +307,8 @@ INSERT INTO `event` (`event_id`, `event`, `event_desc`, `date_posted`) VALUES
 -- Table structure for table `faculty`
 --
 
-CREATE TABLE `faculty` (
-  `faculty_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `faculty` (
+  `faculty_id` int(11) NOT NULL AUTO_INCREMENT,
   `faculty_last` varchar(30) NOT NULL,
   `faculty_first` varchar(30) NOT NULL,
   `faculty_middle` varchar(30) NOT NULL,
@@ -312,8 +345,9 @@ CREATE TABLE `faculty` (
   `status` int(11) NOT NULL,
   `inactive` varchar(11) NOT NULL,
   `last_update` date NOT NULL,
-  `dept_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dept_id` int(11) NOT NULL,
+  PRIMARY KEY (`faculty_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `faculty`
@@ -330,8 +364,8 @@ INSERT INTO `faculty` (`faculty_id`, `faculty_last`, `faculty_first`, `faculty_m
 -- Table structure for table `family`
 --
 
-CREATE TABLE `family` (
-  `fam_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `family` (
+  `fam_id` int(11) NOT NULL AUTO_INCREMENT,
   `faculty_id` int(11) NOT NULL,
   `last` varchar(15) NOT NULL,
   `first` varchar(15) NOT NULL,
@@ -342,8 +376,9 @@ CREATE TABLE `family` (
   `bus_address` varchar(100) NOT NULL,
   `ext` varchar(10) NOT NULL,
   `contact` varchar(15) NOT NULL,
-  `bday` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `bday` date NOT NULL,
+  PRIMARY KEY (`fam_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `family`
@@ -361,11 +396,12 @@ INSERT INTO `family` (`fam_id`, `faculty_id`, `last`, `first`, `middle`, `relati
 -- Table structure for table `industry`
 --
 
-CREATE TABLE `industry` (
-  `industry_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `industry` (
+  `industry_id` int(11) NOT NULL AUTO_INCREMENT,
   `industry` varchar(50) NOT NULL,
-  `industry_desc` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `industry_desc` varchar(100) NOT NULL,
+  PRIMARY KEY (`industry_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `industry`
@@ -381,10 +417,11 @@ INSERT INTO `industry` (`industry_id`, `industry`, `industry_desc`) VALUES
 -- Table structure for table `major`
 --
 
-CREATE TABLE `major` (
-  `major_id` int(11) NOT NULL,
-  `major` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `major` (
+  `major_id` int(11) NOT NULL AUTO_INCREMENT,
+  `major` varchar(50) NOT NULL,
+  PRIMARY KEY (`major_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `major`
@@ -401,11 +438,12 @@ INSERT INTO `major` (`major_id`, `major`) VALUES
 -- Table structure for table `membership`
 --
 
-CREATE TABLE `membership` (
-  `membership_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `membership` (
+  `membership_id` int(11) NOT NULL AUTO_INCREMENT,
   `membership_org` varchar(50) NOT NULL,
-  `faculty_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `faculty_id` int(11) NOT NULL,
+  PRIMARY KEY (`membership_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `membership`
@@ -420,16 +458,17 @@ INSERT INTO `membership` (`membership_id`, `membership_org`, `faculty_id`) VALUE
 -- Table structure for table `ojt_emp`
 --
 
-CREATE TABLE `ojt_emp` (
-  `ojt_emp_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ojt_emp` (
+  `ojt_emp_id` int(11) NOT NULL AUTO_INCREMENT,
   `ojt_id` int(11) NOT NULL,
   `agency_id` int(11) NOT NULL,
   `training_period` varchar(50) NOT NULL,
   `training_start` date NOT NULL,
   `training_end` date NOT NULL,
   `evaluation_status` int(1) NOT NULL,
-  `school_year` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `school_year` varchar(10) NOT NULL,
+  PRIMARY KEY (`ojt_emp_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `ojt_emp`
@@ -442,14 +481,39 @@ INSERT INTO `ojt_emp` (`ojt_emp_id`, `ojt_id`, `agency_id`, `training_period`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `question`
+--
+
+CREATE TABLE IF NOT EXISTS `question` (
+  `question_id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_category_id` int(11) NOT NULL,
+  `question` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `question_category`
+--
+
+CREATE TABLE IF NOT EXISTS `question_category` (
+  `question_category_id` int(11) NOT NULL,
+  `question_category` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `recognition`
 --
 
-CREATE TABLE `recognition` (
-  `recognition_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `recognition` (
+  `recognition_id` int(11) NOT NULL AUTO_INCREMENT,
   `recognition` varchar(50) NOT NULL,
-  `faculty_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `faculty_id` int(11) NOT NULL,
+  PRIMARY KEY (`recognition_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `recognition`
@@ -466,13 +530,14 @@ INSERT INTO `recognition` (`recognition_id`, `recognition`, `faculty_id`) VALUES
 -- Table structure for table `reference`
 --
 
-CREATE TABLE `reference` (
-  `reference_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `reference` (
+  `reference_id` int(11) NOT NULL AUTO_INCREMENT,
   `reference_name` varchar(50) NOT NULL,
   `reference_address` varchar(50) NOT NULL,
   `reference_contact` varchar(30) NOT NULL,
-  `faculty_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `faculty_id` int(11) NOT NULL,
+  PRIMARY KEY (`reference_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `reference`
@@ -489,11 +554,12 @@ INSERT INTO `reference` (`reference_id`, `reference_name`, `reference_address`, 
 -- Table structure for table `seminar`
 --
 
-CREATE TABLE `seminar` (
-  `seminar_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `seminar` (
+  `seminar_id` int(11) NOT NULL AUTO_INCREMENT,
   `seminar` varchar(100) NOT NULL,
-  `ojt_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ojt_id` int(11) NOT NULL,
+  PRIMARY KEY (`seminar_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `seminar`
@@ -508,11 +574,12 @@ INSERT INTO `seminar` (`seminar_id`, `seminar`, `ojt_id`) VALUES
 -- Table structure for table `settings`
 --
 
-CREATE TABLE `settings` (
-  `settings_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `settings` (
+  `settings_id` int(11) NOT NULL AUTO_INCREMENT,
   `school_year` varchar(10) NOT NULL,
-  `semester` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `semester` varchar(20) NOT NULL,
+  PRIMARY KEY (`settings_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `settings`
@@ -528,11 +595,12 @@ INSERT INTO `settings` (`settings_id`, `school_year`, `semester`) VALUES
 -- Table structure for table `skill`
 --
 
-CREATE TABLE `skill` (
-  `skill_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `skill` (
+  `skill_id` int(11) NOT NULL AUTO_INCREMENT,
   `skill` varchar(30) NOT NULL,
-  `faculty_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `faculty_id` int(11) NOT NULL,
+  PRIMARY KEY (`skill_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `skill`
@@ -550,12 +618,13 @@ INSERT INTO `skill` (`skill_id`, `skill`, `faculty_id`) VALUES
 -- Table structure for table `subject`
 --
 
-CREATE TABLE `subject` (
-  `subject_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `subject` (
+  `subject_id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(50) NOT NULL,
   `ojt_id` int(11) NOT NULL,
-  `schedule` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `schedule` varchar(100) NOT NULL,
+  PRIMARY KEY (`subject_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -563,16 +632,17 @@ CREATE TABLE `subject` (
 -- Table structure for table `training`
 --
 
-CREATE TABLE `training` (
-  `training_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `training` (
+  `training_id` int(11) NOT NULL AUTO_INCREMENT,
   `faculty_id` int(11) NOT NULL,
   `training` varchar(100) NOT NULL,
   `training_start` date NOT NULL,
   `training_end` date NOT NULL,
   `training_hours` decimal(10,2) NOT NULL,
   `type` varchar(30) NOT NULL,
-  `sponsor` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `sponsor` varchar(30) NOT NULL,
+  PRIMARY KEY (`training_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `training`
@@ -588,16 +658,17 @@ INSERT INTO `training` (`training_id`, `faculty_id`, `training`, `training_start
 -- Table structure for table `voluntary`
 --
 
-CREATE TABLE `voluntary` (
-  `voluntary_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `voluntary` (
+  `voluntary_id` int(11) NOT NULL AUTO_INCREMENT,
   `faculty_id` int(11) NOT NULL,
   `voluntary_start` date NOT NULL,
   `voluntary_end` date NOT NULL,
   `org_name` varchar(50) NOT NULL,
   `org_address` varchar(50) NOT NULL,
   `hours` decimal(10,2) NOT NULL,
-  `voluntary_position` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `voluntary_position` varchar(50) NOT NULL,
+  PRIMARY KEY (`voluntary_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `voluntary`
@@ -613,8 +684,8 @@ INSERT INTO `voluntary` (`voluntary_id`, `faculty_id`, `voluntary_start`, `volun
 -- Table structure for table `work_exp`
 --
 
-CREATE TABLE `work_exp` (
-  `work_exp_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `work_exp` (
+  `work_exp_id` int(11) NOT NULL AUTO_INCREMENT,
   `faculty_id` int(11) NOT NULL,
   `govt` varchar(3) NOT NULL,
   `work_start` date NOT NULL,
@@ -623,8 +694,9 @@ CREATE TABLE `work_exp` (
   `agency` varchar(100) NOT NULL,
   `salary` decimal(10,2) NOT NULL,
   `grade` varchar(15) NOT NULL,
-  `appoint_status` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `appoint_status` varchar(30) NOT NULL,
+  PRIMARY KEY (`work_exp_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `work_exp`
@@ -635,278 +707,6 @@ INSERT INTO `work_exp` (`work_exp_id`, `faculty_id`, `govt`, `work_start`, `work
 (3, 5, 'Yes', '2017-01-01', '2017-01-01', 'kjhkj', 'kjk', '12333.00', 'saa', 'saa'),
 (4, 7, 'Yes', '2017-01-01', '2017-01-01', 'manager', 'DWDL', '12000.00', 'Grade 2', 'Regular');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`);
-
---
--- Indexes for table `agency`
---
-ALTER TABLE `agency`
-  ADD PRIMARY KEY (`agency_id`);
-
---
--- Indexes for table `announcement`
---
-ALTER TABLE `announcement`
-  ADD PRIMARY KEY (`announcement_id`);
-
---
--- Indexes for table `civil`
---
-ALTER TABLE `civil`
-  ADD PRIMARY KEY (`civil_id`);
-
---
--- Indexes for table `contact`
---
-ALTER TABLE `contact`
-  ADD PRIMARY KEY (`contact_id`);
-
---
--- Indexes for table `dept`
---
-ALTER TABLE `dept`
-  ADD PRIMARY KEY (`dept_id`);
-
---
--- Indexes for table `educ`
---
-ALTER TABLE `educ`
-  ADD PRIMARY KEY (`educ_id`);
-
---
--- Indexes for table `evaluation`
---
-ALTER TABLE `evaluation`
-  ADD PRIMARY KEY (`eval_id`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`event_id`);
-
---
--- Indexes for table `faculty`
---
-ALTER TABLE `faculty`
-  ADD PRIMARY KEY (`faculty_id`);
-
---
--- Indexes for table `family`
---
-ALTER TABLE `family`
-  ADD PRIMARY KEY (`fam_id`);
-
---
--- Indexes for table `industry`
---
-ALTER TABLE `industry`
-  ADD PRIMARY KEY (`industry_id`);
-
---
--- Indexes for table `major`
---
-ALTER TABLE `major`
-  ADD PRIMARY KEY (`major_id`);
-
---
--- Indexes for table `membership`
---
-ALTER TABLE `membership`
-  ADD PRIMARY KEY (`membership_id`);
-
---
--- Indexes for table `ojt_emp`
---
-ALTER TABLE `ojt_emp`
-  ADD PRIMARY KEY (`ojt_emp_id`);
-
---
--- Indexes for table `recognition`
---
-ALTER TABLE `recognition`
-  ADD PRIMARY KEY (`recognition_id`);
-
---
--- Indexes for table `reference`
---
-ALTER TABLE `reference`
-  ADD PRIMARY KEY (`reference_id`);
-
---
--- Indexes for table `seminar`
---
-ALTER TABLE `seminar`
-  ADD PRIMARY KEY (`seminar_id`);
-
---
--- Indexes for table `settings`
---
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`settings_id`);
-
---
--- Indexes for table `skill`
---
-ALTER TABLE `skill`
-  ADD PRIMARY KEY (`skill_id`);
-
---
--- Indexes for table `subject`
---
-ALTER TABLE `subject`
-  ADD PRIMARY KEY (`subject_id`);
-
---
--- Indexes for table `training`
---
-ALTER TABLE `training`
-  ADD PRIMARY KEY (`training_id`);
-
---
--- Indexes for table `voluntary`
---
-ALTER TABLE `voluntary`
-  ADD PRIMARY KEY (`voluntary_id`);
-
---
--- Indexes for table `work_exp`
---
-ALTER TABLE `work_exp`
-  ADD PRIMARY KEY (`work_exp_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `agency`
---
-ALTER TABLE `agency`
-  MODIFY `agency_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `announcement`
---
-ALTER TABLE `announcement`
-  MODIFY `announcement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
---
--- AUTO_INCREMENT for table `civil`
---
-ALTER TABLE `civil`
-  MODIFY `civil_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `contact`
---
-ALTER TABLE `contact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `dept`
---
-ALTER TABLE `dept`
-  MODIFY `dept_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `educ`
---
-ALTER TABLE `educ`
-  MODIFY `educ_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
---
--- AUTO_INCREMENT for table `evaluation`
---
-ALTER TABLE `evaluation`
-  MODIFY `eval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `event`
---
-ALTER TABLE `event`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `faculty`
---
-ALTER TABLE `faculty`
-  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `family`
---
-ALTER TABLE `family`
-  MODIFY `fam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
---
--- AUTO_INCREMENT for table `industry`
---
-ALTER TABLE `industry`
-  MODIFY `industry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `major`
---
-ALTER TABLE `major`
-  MODIFY `major_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `membership`
---
-ALTER TABLE `membership`
-  MODIFY `membership_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `ojt_emp`
---
-ALTER TABLE `ojt_emp`
-  MODIFY `ojt_emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `recognition`
---
-ALTER TABLE `recognition`
-  MODIFY `recognition_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `reference`
---
-ALTER TABLE `reference`
-  MODIFY `reference_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `seminar`
---
-ALTER TABLE `seminar`
-  MODIFY `seminar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `settings`
---
-ALTER TABLE `settings`
-  MODIFY `settings_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `skill`
---
-ALTER TABLE `skill`
-  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `subject`
---
-ALTER TABLE `subject`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `training`
---
-ALTER TABLE `training`
-  MODIFY `training_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `voluntary`
---
-ALTER TABLE `voluntary`
-  MODIFY `voluntary_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `work_exp`
---
-ALTER TABLE `work_exp`
-  MODIFY `work_exp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
