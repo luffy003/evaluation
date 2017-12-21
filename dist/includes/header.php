@@ -2,9 +2,9 @@
         <!-- Logo -->
         <a href="home.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>CHMSC Logo</b></span>
+          <span class="logo-mini"><b><img src="../dist/img/chmsc_green.png" width="45" height="45"></b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">FPES</span>
+          <span class="logo-lg"><img src="../dist/img/chmsc_green.png" width="45" height="45"> FPES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
