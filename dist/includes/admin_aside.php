@@ -7,7 +7,7 @@
          
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+            <li class="header">NAVIGATION PANE</li>
             <li><a href="home.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
                        
             <li>
