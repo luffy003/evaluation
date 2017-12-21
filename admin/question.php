@@ -9,7 +9,7 @@ endif;
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?php include('../dist/includes/title.php'); ?> | Faculty</title>
+        <title><?php include('../dist/includes/title.php'); ?> | Questions</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
@@ -33,26 +33,27 @@ endif;
 
             <header class="main-header">
                 <!-- Logo -->
-                <?php include('../dist/includes/header.php'); ?>
+<?php include('../dist/includes/header.php'); ?>
                 <!-- Header Navbar: style can be found in header.less -->
 
             </header>
             <!-- Left side column. contains the logo and sidebar -->
-            <?php include('../dist/includes/admin_aside.php'); ?>
+<?php include('../dist/includes/admin_aside.php'); ?>
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        List of Faculty
+                        List of Questions
                         <span class="col-xs-2 col-sm-2 pull-right" style="margin-right:700px;">
-                            <a class="btn btn-block btn-primary" data-target="#addcat" class="btn btn-primary" data-toggle="modal" rel="tooltip" title="Update"><i class="glyphicon glyphicon-plus"></i> Add Faculty</a>
+                            <a class="btn btn-block btn-primary" data-target="#addcat" class="btn btn-primary" data-toggle="modal" rel="tooltip" title="Update"><i class="glyphicon glyphicon-plus"></i> Add Question</a>
                         </span>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-                        <li class="active">Faculty</li>
+                        <li class="active">Questions</li>
+                        <li class="active">Lists</li>
                     </ol>
                 </section>
 
@@ -69,10 +70,8 @@ endif;
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Faculty ID</th>
-                                                <th>Last Name</th>
-                                                <th>First Name</th>
-                                                <th>Middle Name</th>
+                                                <th>Category</th>
+                                                <th>Question</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -169,8 +168,6 @@ endif;
                                     <tr>
                                         <td><?php echo $last; ?></td>
                                         <td><?php echo $first; ?></td>
-                                        <td><?php echo $first; ?></td>
-                                        <td><?php echo $first; ?></td>
                                         <td><button class="btn btn-success" data-target="#update<?php echo $id; ?>" data-toggle="modal" data-toggle="tooltip" title="Update">
                                                 <i class="glyphicon glyphicon-pencil"></i>
                                             </button>
@@ -182,10 +179,8 @@ endif;
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Faculty ID</th>
-                                        <th>Last Name</th>
-                                        <th>First Name</th>
-                                        <th>Middle Name</th>
+                                        <th>Category</th>
+                                        <th>Question</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
@@ -203,41 +198,23 @@ endif;
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Add Faculty</h4>
+                    <h4 class="modal-title">Add New Question</h4>
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal" method="post" action="user_save.php" enctype='multipart/form-data'>
                         <!-- Title -->
                         <div class="form-group">
-                            <label class="control-label col-lg-3" for="facultyId">Faculty ID:</label>
+                            <label class="control-label col-lg-3" for="last">Category:</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" name="facultyId" id="facultyId">
+                                <select class="form-control" name="category" id="category">
+                                    <option>--select--</option>
+                                </select>
                             </div>
                         </div> 
                         <div class="form-group">
-                            <label class="control-label col-lg-3" for="lastName">Last Name:</label>
+                            <label class="control-label col-lg-3" for="first">Question:</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" id="lastName" name="lastName">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-lg-3" for="firstName">First Name:</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="firstName" name="firstName">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-lg-3" for="middleName">Middle Name:</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="middleName" name="middleName">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-lg-3" for="collegeGroup">College Group:</label>
-                            <div class="col-lg-8">
-                                <select class="form-control" id="collegeGroup" name="collegeGroup">
-                                    <option>--select--</option>
-                                </select>   
+                                <textarea class="form-control" id="question" name="question"></textarea>
                             </div>
                         </div>
                 </div>     
