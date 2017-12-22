@@ -18,6 +18,7 @@
             <li>
                 <a href="#">
                     <i class="glyphicon glyphicon-question-sign"></i> <span>Questions</span>
+                    <i class="glyphicon glyphicon-chevron-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu menu-open" style="display: none;">
                     <li><a href="question.php"><i class="glyphicon glyphicon-list-alt"></i>Lists</a></li>
