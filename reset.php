@@ -47,7 +47,7 @@ include('includes/dbcon.php');
 
 						    Thanks,
 
-						    Domingo Lacson National High School 
+						    Carlos Hilado Memorial State College 
 						    ";
 						    
 						    $headers = "From:" . $from;

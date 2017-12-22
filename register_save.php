@@ -29,7 +29,7 @@ include('includes/dbcon.php');
     
 						    error_reporting(E_ALL);
 						    
-						    $from = "info@dlnhs.com";
+						    $from = "info@chmsc.com";
 						    
 						    $to = "$email";
 						    
@@ -44,7 +44,7 @@ include('includes/dbcon.php');
 
 						    Thanks,
 
-						    Domingo Lacson National High School 
+						    Carlos Hilado Memorial State College 
 						    ";
 						    
 						    $headers = "From:" . $from;
