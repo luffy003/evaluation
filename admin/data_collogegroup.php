@@ -5,8 +5,8 @@ session_start();
       endif;include('../dist/includes/dbcon.php');
 
 
-$result = mysqli_query($con,"SELECT department,COUNT(*) FROM faculty natural join dept
- where status='1' and inactive='Active' group by dept");
+$result = mysqli_query($con,"SELECT college_group,COUNT(*) FROM faculty natural join description
+ where status='1' and inactive='Active' group by description");
 	
 $rows = array();
 while($r = mysqli_fetch_array($result)) {
