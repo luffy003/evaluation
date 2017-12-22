@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","root","mysqladmin","faculty_profiling");
+$con = mysqli_connect("localhost","root","","evaluation");
 
 // Check connection
 if (mysqli_connect_errno())
