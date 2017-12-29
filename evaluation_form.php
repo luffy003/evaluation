@@ -368,7 +368,7 @@ include('dist/php/module.php');
 
                                                 <table id="Commitment">
                                                     <tr>
-                                                        <th>MANAGEMENT OF LEARNING</th>
+                                                        <th>D.MANAGEMENT OF LEARNING</th>
                                                         <th align="center" width="10%">P</th>
                                                         <th align="center" width="10%">UN</th>
                                                         <th align="center" width="10%">S</th>
@@ -583,12 +583,47 @@ include('dist/php/module.php');
                                                                 <td>4</td>
                                                                 <td>5</td>
                                                             </tr>
+                                                            <tr>
+                                                                <td>17.Is fair and accept weaknesses of others.</td>
+                                                                <td>1</td>
+                                                                <td>2</td>
+                                                                <td>3</td>
+                                                                <td>4</td>
+                                                                <td>5</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>18.Refrains from putting students, peers and superiors in bad light.</td>
+                                                                <td>1</td>
+                                                                <td>2</td>
+                                                                <td>3</td>
+                                                                <td>4</td>
+                                                                <td>5</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>19.Abide by the policies and regulations of the college (wearing of proper uniform with ID's, non-smoking on campus, etc.).</td>
+                                                                <td>1</td>
+                                                                <td>2</td>
+                                                                <td>3</td>
+                                                                <td>4</td>
+                                                                <td>5</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>20.Treats students with due respect.</td>
+                                                                <td>1</td>
+                                                                <td>2</td>
+                                                                <td>3</td>
+                                                                <td>4</td>
+                                                                <td>5</td>
+                                                            </tr>
+
+
+
 
                                                         </table>
                                                         <table>
                                                             <tr>
                                                                 <td><strong>Comment:</strong></td>
-                                                                <td><textarea class="form-control" cols="100" rows="5" id="comment_entered"> </textarea></td>
+                                                                <td><textarea class="form-control" cols="165" rows="8" id="comment_entered"> </textarea></td>
                                                             </tr>
                                                         </table>
                                                     </body>
