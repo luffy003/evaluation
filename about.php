@@ -48,7 +48,7 @@
                     <div class="col-md-4">
                       <h2 class="no-top-space"><strong>CHMSC HYMN<strong></h2>
                       <p>CHMSC Hymn <br>
-by Dr. Victor Lyrics ia L. Ojas<br>
+by Dr. Victor Lyrics Via L. Ojas<br>
 
  <br>
 
