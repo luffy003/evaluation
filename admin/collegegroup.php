@@ -6,7 +6,6 @@ endif;
 ?>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,78 +30,6 @@ endif;
   </head>
   <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
-
-      <header class="main-header">
-        <!-- Logo -->
-        <?php include('../dist/includes/header.php');?>
-        <!-- Header Navbar: style can be found in header.less -->
-        
-      </header>
-      <!-- Left side column. contains the logo and sidebar -->
-      <?php include('../dist/includes/admin_aside.php');?>
-
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            List of Departments
-            <span class="col-xs-2 col-sm-2 pull-right" style="margin-right:673px;">
-            <a class="btn btn-block btn-primary" data-target="#addcat" class="btn btn-primary" data-toggle="modal" rel="tooltip" title="Update">Add Department</a>
-            </span>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Department</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <div class="row">
-            <div class="col-xs-12">
-              
-
-              <div class="box">
-                <div class="box-header">
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-			                  <th>Department</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-<?php
-include('../dist/includes/dbcon.php');
-=======
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?php include('../dist/includes/title.php'); ?> | College Group</title>
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!-- Bootstrap 3.3.5 -->
-        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="../dist/css/font-awesome.min.css">
-        <!-- Ionicons -->
-        <link rel="stylesheet" href="../dist/css/ionicons.min.css">
-        <!-- DataTables -->
-        <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
-        <!-- AdminLTE Skins. Choose a skin from the css/skins
-             folder instead of downloading all of them to reduce the load. -->
-        <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
->>>>>>> 955f60d848c2410139932c60b88871078c057821
-
-
-    </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-        <div class="wrapper">
 
             <header class="main-header">
                 <!-- Logo -->
