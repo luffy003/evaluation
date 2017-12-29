@@ -622,8 +622,9 @@ include('dist/php/module.php');
                                                         </table>
                                                         <table>
                                                             <tr>
-                                                                <td><strong>Comment:</strong></td>
-                                                                <td><textarea class="form-control" cols="165" rows="8" id="comment_entered"> </textarea></td>
+                                                            <br><br>
+                                                            <strong>COMMENT:</strong><br>
+                                                               <td><textarea class="form-control" cols="175" rows="8" id="comment_entered"> </textarea></td> 
                                                             </tr>
                                                         </table>
                                                     </body>
