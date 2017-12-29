@@ -53,3 +53,7 @@
     }
   </style>
 </head>
+
+<?php
+define("CAMPUS", "Talisay City");
+?>

@@ -9,7 +9,7 @@ endif;
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?php include('../dist/includes/title.php'); ?> | Questions</title>
+        <title><?php include('../dist/includes/title.php'); ?> | Question</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
@@ -28,32 +28,31 @@ endif;
 
 
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-green sidebar-mini">
         <div class="wrapper">
 
             <header class="main-header">
                 <!-- Logo -->
-<?php include('../dist/includes/header.php'); ?>
+                <?php include('../dist/includes/header.php'); ?>
                 <!-- Header Navbar: style can be found in header.less -->
 
             </header>
             <!-- Left side column. contains the logo and sidebar -->
-<?php include('../dist/includes/admin_aside.php'); ?>
+            <?php include('../dist/includes/admin_aside.php'); ?>
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        List of Questions
+                        List of Question
                         <span class="col-xs-2 col-sm-2 pull-right" style="margin-right:700px;">
-                            <a class="btn btn-block btn-primary" data-target="#addcat" class="btn btn-primary" data-toggle="modal" rel="tooltip" title="Update"><i class="glyphicon glyphicon-plus"></i> Add Question</a>
+                            <a class="btn btn-block btn-primary" data-target="#addquestionlist" class="btn btn-primary" data-toggle="modal">Add Question</a>
                         </span>
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-                        <li class="active">Questions</li>
-                        <li class="active">Lists</li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Question</li>
                     </ol>
                 </section>
 
@@ -79,14 +78,10 @@ endif;
                                             <?php
                                             include('../dist/includes/dbcon.php');
 
-                                            $query = mysqli_query($con, "select * from admin order by admin_last")or die(mysqli_error());
+                                            $query = mysqli_query($con, "select * from question inner join question_category on question_category.question_category_id = question.question_category_id")or die(mysqli_error());
                                             while ($row = mysqli_fetch_array($query)) {
-                                                $id = $row['admin_id'];
-                                                $last = $row['admin_last'];
-                                                $first = $row['admin_first'];
-                                                $pic = $row['admin_pic'];
-                                                $status = $row['admin_status'];
-                                                $username = $row['admin_username'];
+                                                $category = $row['question_category'];
+                                                $question = $row['question'];
                                                 ?>
 
                                             <div id="update<?php echo $id; ?>" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -94,37 +89,19 @@ endif;
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                            <h4 class="modal-title">Update Admin User Details</h4>
+                                                            <h4 class="modal-title">Update Question Details</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form class="form-horizontal" method="post" action="user_update.php" enctype='multipart/form-data'>
+                                                            <form class="form-horizontal" method="post" action="collegegroup_update.php" enctype='multipart/form-data'>
                                                                 <div class="form-group">
-                                                                    <label class="control-label col-lg-3" for="last">Last Name</label>
+                                                                    <label class="control-label col-lg-3" for="collegeGroup">Question</label>
                                                                     <div class="col-lg-8">
-                                                                        <input type="text" class="form-control" id="last" name="last" placeholder="Last Name" value="<?php echo $last; ?>">  
-                                                                    </div>
-                                                                </div> <br>
-                                                                <div class="form-group">
-                                                                    <label class="control-label col-lg-3" for="first">First Name</label>
-                                                                    <div class="col-lg-8">
-                                                                        <input type="text" class="form-control" id="first" name="first" placeholder="First Name"  value="<?php echo $first; ?>">  
+                                                                        <input type="text" id="id" name="id" value="<?php echo $id; ?>" hidden>
+                                                                        <input type="text" class="form-control" id="questionList" name="questionList" value="<?php echo $question; ?>">  
                                                                     </div>
                                                                 </div><br>
                                                                 <!-- Title -->
-                                                                <div class="form-group">
-                                                                    <label class="control-label col-lg-3" for="id">Username</label>
-                                                                    <div class="col-lg-8">
-                                                                        <input type="hidden" class="form-control" name="id" value="<?php echo $id; ?>">  
-                                                                        <input type="text" class="form-control" id="id" name="username" placeholder="Username" value="<?php echo $username; ?>">  
-                                                                    </div>
-                                                                </div> <br>
-                                                                <div class="form-group">
-                                                                    <label class="control-label col-lg-3" for="salut">Picture</label>
-                                                                    <div class="col-lg-8">
-                                                                        <input type="hidden" class="form-control" id="image" name="image1" value="<?php echo $pic; ?>"> 
-                                                                        <input type="file" class="form-control" id="image" name="image">  
-                                                                    </div>
-                                                                </div> <br>
+                                                                <br>
                                                                 </div>
                                                                 <!--end of modal body-->
                                                                 <div class="modal-footer">
@@ -138,7 +115,6 @@ endif;
                                                 </div>
                                             </div>
                                             <!--end of modal-->
-
                                             <div id="del<?php echo $id; ?>" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -149,7 +125,7 @@ endif;
                                                         <div class="modal-body">
                                                             <form class="form-horizontal" method="post" action="">
                                                                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                                                <p>Are you sure you want to deactivate admin user <?php echo $last . " " . $first; ?>?</p> 
+                                                                <p>Are you sure you want to remove this question?</p> 
 
                                                         </div>    
                                                         <!--end of modal body-->
@@ -163,115 +139,122 @@ endif;
                                                     </form>
                                                 </div>
                                             </div>
-                                    </div>
-                                    <!--end of modal-->                 
-                                    <tr>
-                                        <td><?php echo $last; ?></td>
-                                        <td><?php echo $first; ?></td>
-                                        <td><button class="btn btn-success" data-target="#update<?php echo $id; ?>" data-toggle="modal" data-toggle="tooltip" title="Update">
-                                                <i class="glyphicon glyphicon-pencil"></i>
-                                            </button>
-                                            <button class="btn btn-danger" data-target="#del<?php echo $id; ?>" data-toggle="modal" data-toggle="tooltip" title="Delete"><i class="glyphicon glyphicon-trash"></i></button>
-                                        </td>
-                                    </tr>
 
-                                <?php } ?>                     
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Question</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
-                                </table>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
-                    </div><!-- /.col -->
-            </div><!-- /.row -->
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
-    <?php include('../dist/includes/footer.php'); ?>
+                                            <tr>
+                                                <td><?php echo $category; ?></td>
+                                                <td><?php echo $question; ?></td>
+                                                <td><button class="btn btn-success" data-target="#update<?php echo $question; ?>" data-toggle="modal">
+                                                        <i class="glyphicon glyphicon-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-danger" data-target="#del<?php echo $id; ?>" data-toggle="modal"><i class="glyphicon glyphicon-trash"></i></button>
 
-    <div id="addcat" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Add New Question</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="user_save.php" enctype='multipart/form-data'>
-                        <!-- Title -->
-                        <div class="form-group">
-                            <label class="control-label col-lg-3" for="last">Category:</label>
-                            <div class="col-lg-8">
-                                <select class="form-control" name="category" id="category">
-                                    <option>--select--</option>
-                                </select>
-                            </div>
-                        </div> 
-                        <div class="form-group">
-                            <label class="control-label col-lg-3" for="first">Question:</label>
-                            <div class="col-lg-8">
-                                <textarea class="form-control" id="question" name="question"></textarea>
-                            </div>
+                                                </td>
+                                            </tr>
+
+                                        <?php } ?>                     
+                                        </tbody>
+
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+            <?php include('../dist/includes/footer.php'); ?>
+
+            <div id="addquestionlist" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Add New Question</h4>
                         </div>
-                </div>     
-                <!--end of modal body-->
-                <div class="modal-footer">
-                    <button type="submit" name="save" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-                </div>
-            </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" method="post" action="questionlist_save.php" enctype='multipart/form-data'>
+                                <!-- Title -->
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3" for="questionCat">Category</label>
+                                    <div class="col-lg-8">
+                                        <select class="form-control" name="questionCat" id="questionCat">
+                                            <option >--select--</option>
+                                            <?php
+                                            $query = mysqli_query($con, "select * from question_category order by question_category")or die(mysqli_error());
+                                            while ($row = mysqli_fetch_array($query)) {
+                                                $id = $row['question_category_id'];
+                                                $questioncategory = $row['question_category'];
 
-            <!--end of modal content-->
-            </form>
-        </div>
-    </div>   
-    <!--end of modal-->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
-</div><!-- ./wrapper -->
-<?php
-if (isset($_POST['del'])) {
-    $id = $_POST['id'];
+                                                echo "<option value='$id'>" . $questioncategory . "</option>";
+                                            }
+                                            ?>
 
-    // sending query
-    mysqli_query($con, "update admin set admin_status='inactive' WHERE admin_id='$id'")
-            or die(mysqli_error());
-    echo "<script>document.location='user.php'</script>";
-}
-?>
-<!-- jQuery 2.1.4 -->
-<script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
-<!-- Bootstrap 3.3.5 -->
-<script src="../bootstrap/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../plugins/fastclick/fastclick.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../dist/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-    $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false
-        });
-    });
-</script>
-</body>
+                                        </select>
+                                    </div>
+                                </div> 
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3" for="questionList">Question</label>
+                                    <div class="col-lg-8">
+                                        <textarea class="form-control" id="questionCat" name="questionList"></textarea>  
+                                    </div>
+                                </div> 
+
+                                <!--end of modal body-->
+                                <div class="modal-footer">
+                                    <button type="submit" name="save" class="btn btn-primary">Save</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+                                </div>
+                        </div>
+
+                        <!--end of modal content-->
+                        </form>
+                    </div>
+                </div>   
+                <!--end of modal-->
+
+                <!-- Add the sidebar's background. This div must be placed
+                     immediately after the control sidebar -->
+                <div class="control-sidebar-bg"></div>
+            </div><!-- ./wrapper -->
+            <?php
+            if (isset($_POST['del'])) {
+                $id = $_POST['id'];
+
+                // sending query
+                mysqli_query($con, "delete from question WHERE question_id='$id'")
+                        or die(mysqli_error());
+                echo "<script>document.location='question.php'</script>";
+            }
+            ?>
+
+            <!-- jQuery 2.1.4 -->
+            <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+            <!-- Bootstrap 3.3.5 -->
+            <script src="../bootstrap/js/bootstrap.min.js"></script>
+            <!-- DataTables -->
+            <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+            <!-- SlimScroll -->
+            <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+            <!-- FastClick -->
+            <script src="../plugins/fastclick/fastclick.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="../dist/js/app.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="../dist/js/demo.js"></script>
+            <!-- page script -->
+            <script>
+                $(function () {
+                    $("#example1").DataTable();
+                    $('#example2').DataTable({
+                        "paging": true,
+                        "lengthChange": false,
+                        "searching": false,
+                        "ordering": true,
+                        "info": true,
+                        "autoWidth": false
+                    });
+                });
+            </script>
+    </body>
 </html>
