@@ -105,7 +105,7 @@ include('dist/php/module.php');
                                                 <tr>
                                                     <td>Faculty Name:</td>
                                                     <td>
-                                                        <select class="form-control" id="cbo_wrap">
+                                                        <select name="faculty_id" class="form-control" id="cbo_wrap">
                                                             <option>-select-</option>
                                                             <?php
                                                             $faculty_qry = mysqli_query($con, "SELECT * FROM faculty ORDER BY faculty_last, faculty_first") or die(mysqli_error());
@@ -130,8 +130,15 @@ include('dist/php/module.php');
                                                 <tr>
                                                     <td>Subject:</td>
                                                     <td>
-                                                        <select class="form-control">
+                                                        <select name="subject" class="form-control" id="cbo_wrap">
                                                             <option>-select-</option>
+                                                            <?php
+                                                            $subject_qry = mysqli_query($con, "SELECT * FROM subject ORDER BY subject_code") or die(mysqli_error());
+
+                                                            while ($row = mysqli_fetch_array($subject_qry)) {
+                                                                echo "<option value=" . $row['subject_code'] . ">" . $row['subject_code'] . " - " . $row['descriptive_title'] . "</option>";
+                                                            }
+                                                            ?>
                                                         </select>
                                                     </td>
                                                     <td></td>
@@ -202,7 +209,7 @@ include('dist/php/module.php');
                                                     <tr>
                                                         <td>1. Demonstrate sensitivityto students' ability to attend and 
                                                             <br>absorb content information.</br></td>
-                                                        <td>1</td>
+                                                        <td><input type="radio" value="1" >1</td>
                                                         <td>2</td>
                                                         <td>3</td>
                                                         <td>4</td>
