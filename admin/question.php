@@ -80,6 +80,7 @@ endif;
 
                                             $query = mysqli_query($con, "select * from question inner join question_category on question_category.question_category_id = question.question_category_id")or die(mysqli_error());
                                             while ($row = mysqli_fetch_array($query)) {
+                                                $qid = $row['question_id'];
                                                 $category = $row['question_category'];
                                                 $question = $row['question'];
                                                 ?>
@@ -115,7 +116,7 @@ endif;
                                                 </div>
                                             </div>
                                             <!--end of modal-->
-                                            <div id="del<?php echo $id; ?>" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                            <div id="del<?php echo $qid; ?>" class="modal modal-primary fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -124,7 +125,7 @@ endif;
                                                         </div>
                                                         <div class="modal-body">
                                                             <form class="form-horizontal" method="post" action="">
-                                                                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                                                <input type="hidden" name="id" value="<?php echo $qid; ?>">
                                                                 <p>Are you sure you want to remove this question?</p> 
 
                                                         </div>    
@@ -146,7 +147,7 @@ endif;
                                                 <td><button class="btn btn-success" data-target="#update<?php echo $question; ?>" data-toggle="modal">
                                                         <i class="glyphicon glyphicon-pencil"></i>
                                                     </button>
-                                                    <button class="btn btn-danger" data-target="#del<?php echo $id; ?>" data-toggle="modal"><i class="glyphicon glyphicon-trash"></i></button>
+                                                    <button class="btn btn-danger" data-target="#del<?php echo $qid; ?>" data-toggle="modal"><i class="glyphicon glyphicon-trash"></i></button>
 
                                                 </td>
                                             </tr>
@@ -171,7 +172,7 @@ endif;
                             <h4 class="modal-title">Add New Question</h4>
                         </div>
                         <div class="modal-body">
-                            <form class="form-horizontal" method="post" action="questionlist_save.php" enctype='multipart/form-data'>
+                            <form class="form-horizontal" method="post" action="question_save.php" enctype='multipart/form-data'>
                                 <!-- Title -->
                                 <div class="form-group">
                                     <label class="control-label col-lg-3" for="questionCat">Category</label>
@@ -193,9 +194,9 @@ endif;
                                 </div> 
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3" for="questionList">Question</label>
+                                    <label class="control-label col-lg-3" for="question">Question</label>
                                     <div class="col-lg-8">
-                                        <textarea class="form-control" id="questionCat" name="questionList"></textarea>  
+                                        <textarea class="form-control" id="question" name="question"></textarea>  
                                     </div>
                                 </div> 
 
@@ -204,10 +205,11 @@ endif;
                                     <button type="submit" name="save" class="btn btn-primary">Save</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
                                 </div>
+                                </form>
                         </div>
 
                         <!--end of modal content-->
-                        </form>
+                        
                     </div>
                 </div>   
                 <!--end of modal-->

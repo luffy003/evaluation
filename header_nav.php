@@ -18,6 +18,7 @@
             <li><a href="events.php" class="menu1">Announcements</a></li>
       			<li><a href="about.php" class="menu1">About</a></li>
       			<li><a href="contact.php" class="menu1">Contact</a></li>
+                        <li><a href="login_page.php" class="menu1">Login</a></li>
            </ul>
         </div>
         <!-- END NAVIGATION -->

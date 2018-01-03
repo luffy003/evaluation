@@ -32,6 +32,13 @@
                        Enter your personal details below:
                     </p>
                     <div class="form-group">
+                      <label class="control-label visible-ie8 visible-ie9">School ID</label>
+                      <div class="input-icon">
+                        <i class="glyphicon glyphicon-qrcode"></i>
+                        <input class="form-control placeholder-no-fix" type="text" placeholder="School ID" name="schoolid" required />
+                      </div>
+                    </div>
+                    <div class="form-group">
                       <label class="control-label visible-ie8 visible-ie9">Last Name</label>
                       <div class="input-icon">
                         <i class="fa fa-font"></i>
@@ -100,16 +107,6 @@
                           <i class="fa fa-check"></i>
                           <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" required/>
                         </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label>
-                      <input type="checkbox" name="tnc" required /> I agree to the <a href="javascript:;">
-                      Terms of Service </a>
-                      and <a href="javascript:;">
-                      Privacy Policy </a>
-                      </label>
-                      <div id="register_tnc_error">
                       </div>
                     </div>
                     <div class="form-actions">

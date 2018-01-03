@@ -38,8 +38,8 @@
                     <abbr title="Phone">Tel</abbr> (034) 712-0050
                   </address>
                   <address>
-                    <strong>Email</strong><br>
-                    <a href="">chmsc@gmail.com</a>
+                    <strong>Website</strong><br>
+                    <a href="http://www.chmsc.edu.ph" target="_blank">www.chmsc.edu.ph</a>
                   </address>
                   
                 </div>
